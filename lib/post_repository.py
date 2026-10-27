@@ -21,6 +21,13 @@ class PostRepository:
         row = rows[0]
         return Post(row["title"], row["content"], row['tags'], row["id"])
 
+    def all_posts_by_tag(self, tag):
+        rows = self._connection.execute(
+            'SELECT * FROM posts WHERE %s = ANY(tags)', [tag]
+        )
+
+        return [Post(row["title"], row["content"], row["tags"], row["id"]) for row in rows]
+
     # Create a new post
     # Do you want to get its id back? Look into RETURNING id;
     def create(self, post):
