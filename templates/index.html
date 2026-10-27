@@ -1,27 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset=utf-8>
-  <title>The Broken Blog</title>
-</head>
-<body>
-  <h1>The Broken Blog</h1>
+	<head>
+		<meta charset="utf-8" />
+		<title>The Broken Blog</title>
+	</head>
+	<body>
+		<h1>The Broken Blog</h1>
 
-  <h3>Add a new post</h3>
-  <form method="post" action="/posts">
-    Title: <input type="text" name="post_title" />
-    Content: <input type="text" name="content" />
-    Tags: <input type="text" name="tags" />
+		<h3>Add a new post</h3>
+		<form method="post" action="/posts">
+			Title: <input type="text" name="title" /> Content:
+			<input type="text" name="content" /> Tags: <input type="text" name="tags" />
 
-    <input type="submit" value="Submit" />
-  </form>
+			<input type="submit" value="Submit" />
+		</form>
 
-  <hr />
-  {% for post in posts %}
-    <div>
-      <h3>{{ post.title }}</h3>
-      <p>{{ post.tags }}</p>
-    </div>
-  {% endfor %}
-</body>
+		<hr />
+		{% for post in posts %}
+		<div>
+			<h3>{{ post.title }}</h3>
+			<p>{{ post.tags }}</p>
+		</div>
+		{% endfor %}
+	</body>
 </html>
