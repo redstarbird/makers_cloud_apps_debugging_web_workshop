@@ -10,7 +10,7 @@ class PostRepository:
         rows = self._connection.execute('SELECT * from posts')
         posts = []
         for row in rows:
-            item = Post(row["title"], row["tags"], row["content"], row["id"])
+            item = Post(row["title"], row["content"], row["tags"], row["id"])
             posts.append(item)
         return posts
 
