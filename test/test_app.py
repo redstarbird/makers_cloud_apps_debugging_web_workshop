@@ -10,7 +10,7 @@ def test_index_route_returns_blog_page(web_client, db_connection):
     db_connection.seed("seeds/posts.sql")
     response = web_client.get('/')
     assert response.status_code == 200
-    assert b'The Broken Blog' in response.data
+    assert b'The Working Blog' in response.data
 
 def test_create_post_redirects_to_home(web_client, db_connection):
     db_connection.seed("seeds/posts.sql")
@@ -28,7 +28,7 @@ def test_posts_by_tag_route_renders_template(web_client, post_repository, db_con
     post_repository.create(post)
     
     # When requesting posts by tag
-    response = web_client.post('/tag/python')
+    response = web_client.get('/tag/python')
     
     # Then the page renders successfully
     assert response.status_code == 200
