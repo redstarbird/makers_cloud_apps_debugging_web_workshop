@@ -33,7 +33,7 @@ def create_post():
     new_post = Post(request.form['title'], request.form['content'], request.form['tags'].split(','))
     post_repository.create(new_post)
     posts = post_repository.all()
-    return render_template('index.html', posts=posts)
+    return redirect("/")
 
 if __name__ == '__main__':
     app.run(debug=True)
